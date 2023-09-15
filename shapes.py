@@ -29,6 +29,14 @@ class Rectangle(Shape):
         """Calculates the perimeter of a rectangle with the formula side1*2 + side2*2"""
         return self.side1 * 2 + self.side2 * 2
     
+    @property
+    def is_square(self) -> bool:
+        """Returns T/F if rectangle is square"""
+        if self.side1 == self.side2:
+            return True
+        else:
+            return False
+    
 class Triangle(Shape):
 
     def __init__(self, side1: float, side2: float, side3: float, height: float):
@@ -46,3 +54,11 @@ class Triangle(Shape):
     def perimeter(self) -> float:
         """Calculates the perimeter of a triangle with the formula side1+side2+side3"""
         return self.side1 + self.side2 + self.side3
+    
+    @property
+    def is_valid(self) -> bool:
+        """Returns T/F if triangle is valid"""
+        if self.side1 + self.side2 >= self.side3 and self.side1 + self.side3 >= self.side2 and self.side2 + self.side3 >=self.side1:
+            return True
+        else:
+            return False
